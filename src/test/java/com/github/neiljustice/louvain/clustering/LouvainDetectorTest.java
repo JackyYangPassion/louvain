@@ -53,6 +53,17 @@ public class LouvainDetectorTest {
     assertTrue(ld.modularity() > 0.7);
   }
 
+
+  @Test
+  public void checkLovainGraph() {
+    final Graph g = new GraphBuilder().fromFile(getFile("graphs/edge_transaction.csv"));
+    final LouvainDetector ld = new LouvainDetector(g);
+    final LayeredCommunityStructure res = ld.cluster();
+//    assertEquals(res.layers(), 1);
+//    assertEquals(g.partitioning().numComms(), 6);
+//    assertTrue(ld.modularity() > 0.7);
+  }
+
   private File getFile(String filename) {
     final URL url = Thread.currentThread().getContextClassLoader().getResource(filename);
     return new File(url.getPath());

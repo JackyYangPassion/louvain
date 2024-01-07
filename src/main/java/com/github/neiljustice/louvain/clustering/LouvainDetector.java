@@ -53,7 +53,7 @@ public class LouvainDetector implements Clusterer {
 
   public LouvainDetector(Graph g, long seed) {
     this();
-    graphs.add(g);
+    graphs.add(g);// 初始化第一层图
     rnd.setSeed(seed);
     LOG.info("Using seed " + seed);
   }
